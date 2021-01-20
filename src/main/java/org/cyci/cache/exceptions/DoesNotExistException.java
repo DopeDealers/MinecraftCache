@@ -1,4 +1,4 @@
-package org.cyci.cache;
+package org.cyci.cache.exceptions;
 
 /**
  * @author - Phil

@@ -2,6 +2,8 @@ package org.cyci.cache;
 
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.cyci.cache.exceptions.DoesNotExistException;
+import org.cyci.cache.exceptions.KeyExistsException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,12 +19,13 @@ import java.util.UUID;
 public class Cache extends JavaPlugin {
     @Override
     public void onEnable() {
-
+        reloadConfig();
+        saveConfig();
     }
 
     @Override
     public void onDisable() {
-
+        saveConfig();
     }
 
     /**
@@ -43,7 +46,7 @@ public class Cache extends JavaPlugin {
      */
     public static String insertUser(UUID userID, Player userInfo) throws KeyExistsException {
         if (Cache.cache.containsKey(userID)) throw new KeyExistsException("The Key already exists in the cache.");
-        Cache.cache.put(userID, userInfo);
+        Cache.cache.put(userID, userInfo.getPlayer());
         return "User inserted";
     }
     /**
@@ -86,4 +89,5 @@ public class Cache extends JavaPlugin {
     static {
         cache = new HashMap<UUID, Player>();
     }
+    
 }

@@ -1,0 +1,11 @@
+db:
+  login_info:
+    host: ""
+    password: ""
+
+
+saveTable:
+  - "{playerUUID}"
+  - "{playerName}"
+  - "{playerIP}"
+createTable: "CREATE TABLE IF NOT EXISTS {mCt} (UUID TEXT NOT NULL, Name TEXT NOT NULL, IP TEXT NOT NULL);"
