@@ -1,6 +1,7 @@
 package org.cyci.cache;
 
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,16 @@ import java.util.UUID;
  * @email - staff@cyci.org
  * @created Tue - 19/Jan/2021 - 6:32 PM
  */
-public class Cache {
+public class Cache extends JavaPlugin {
+    @Override
+    public void onEnable() {
+
+    }
+
+    @Override
+    public void onDisable() {
+
+    }
 
     /**
      * @Cache
@@ -66,7 +76,6 @@ public class Cache {
         if (!Cache.cache.containsKey(userID)) throw new DoesNotExistException("The key does not exist in the current cache!");
         return (Cache) Cache.cache.get(userID);
     }
-
     /**
      * @Version
      * @return

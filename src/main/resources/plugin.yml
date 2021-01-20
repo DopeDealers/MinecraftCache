@@ -1,0 +1,7 @@
+name: MinecraftCache
+version: 1.0.0
+main: org.cyci.cache.Cache
+api-version: 1.13
+load: STARTUP
+author: DopeDealers
+prefix: MinecraftCache
