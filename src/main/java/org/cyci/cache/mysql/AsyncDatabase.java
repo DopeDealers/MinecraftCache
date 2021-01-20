@@ -24,4 +24,7 @@ public interface AsyncDatabase {
 
     void update(String[] keys, Object[] values, String whereKey, Object whereValue, Callback<Object> callback);
 
+    default String getTable() {
+        return table;
+    }
 }

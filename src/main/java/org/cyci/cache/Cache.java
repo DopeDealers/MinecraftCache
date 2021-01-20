@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cyci.cache.exceptions.DoesNotExistException;
 import org.cyci.cache.exceptions.KeyExistsException;
+import org.cyci.cache.mysql.Manager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,15 +18,20 @@ import java.util.UUID;
  * @created Tue - 19/Jan/2021 - 6:32 PM
  */
 public class Cache extends JavaPlugin {
+    public Cache() {
+
+    }
     @Override
     public void onEnable() {
         reloadConfig();
         saveConfig();
+        Manager.initialize();
     }
 
     @Override
     public void onDisable() {
         saveConfig();
+        Manager.close();
     }
 
     /**
@@ -89,5 +95,5 @@ public class Cache extends JavaPlugin {
     static {
         cache = new HashMap<UUID, Player>();
     }
-    
+
 }

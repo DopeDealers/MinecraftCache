@@ -2,6 +2,7 @@ db:
   login_info:
     host: ""
     password: ""
+    username: ""
 
 
 saveTable:
